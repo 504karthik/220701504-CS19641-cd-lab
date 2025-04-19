@@ -17,12 +17,13 @@
 
 #define YYPURE 0
 
-#line 2 "exp5.y"
+#line 2 "exp6.y"
 #include <stdio.h>
 void yyerror(const char *msg);
-int yylex(void);
 extern char *yytext;
-#line 26 "y.tab.c"
+int yylex(void);
+int regs[26];
+#line 27 "y.tab.c"
 
 #if ! defined(YYSTYPE) && ! defined(YYSTYPE_IS_DECLARED)
 /* Default: YYSTYPE is the semantic value type. */
@@ -61,54 +62,131 @@ typedef int YYSTYPE;
 
 extern int YYPARSE_DECL();
 
-#define IDENTIFIER 257
+#define DIGIT 257
+#define LETTER 258
+#define UMINUS 259
 #define YYERRCODE 256
 typedef short YYINT;
 static const YYINT yylhs[] = {                           -1,
-    0,
+    0,    0,    0,    1,    1,    2,    2,    2,    2,    2,
+    2,    2,    2,    2,    2,    2,    3,    3,
 };
 static const YYINT yylen[] = {                            2,
-    1,
+    0,    3,    3,    1,    3,    3,    3,    3,    3,    3,
+    3,    3,    3,    2,    1,    1,    1,    2,
 };
-static const YYINT yydefred[] = {                         0,
-    1,    0,
+static const YYINT yydefred[] = {                         1,
+    0,    0,   17,    0,    0,    0,    0,    0,    0,    3,
+    0,   15,   14,    0,    2,    0,    0,    0,    0,    0,
+    0,    0,   18,    0,    6,    0,    0,    0,    0,    9,
+   10,   11,
 };
-static const YYINT yydgoto[] = {                          2,
+static const YYINT yydgoto[] = {                          1,
+    7,    8,    9,
 };
-static const YYINT yysindex[] = {                      -257,
+static const YYINT yysindex[] = {                         0,
+  -40,   -7,    0,  -55,  -38,  -38,    1,  -29, -247,    0,
+  -38,    0,    0,   22,    0,  -38,  -38,  -38,  -38,  -38,
+  -38,  -38,    0,  -29,    0,   51,   60,  -20,  -20,    0,
     0,    0,
 };
 static const YYINT yyrindex[] = {                         0,
+    0,    0,    0,    2,    0,    0,    0,    9,   -9,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,   10,    0,   -6,   14,    5,   13,    0,
     0,    0,
 };
 static const YYINT yygindex[] = {                         0,
+    0,   65,    0,
 };
-#define YYTABLESIZE 0
-static const YYINT yytable[] = {                          1,
+#define YYTABLESIZE 220
+static const YYINT yytable[] = {                          6,
+   16,    6,   10,   13,    5,   11,    5,   22,   17,   23,
+   15,   15,   20,   18,    7,   19,   22,   21,    4,    5,
+    0,   20,    8,   12,    0,    0,   21,   16,   16,    0,
+    0,   16,   16,   16,   13,   16,    0,   16,   15,   15,
+    0,    0,    7,   15,   15,    7,   15,    7,   15,    7,
+    8,   12,    0,    8,   12,    8,    0,    8,   22,   17,
+    0,    0,   25,   20,   18,    0,   19,    0,   21,   13,
+   14,    0,    0,    0,    0,   24,    0,    0,    0,    0,
+   26,   27,   28,   29,   30,   31,   32,   22,   17,    0,
+    0,    0,   20,   18,   16,   19,   22,   21,    0,    0,
+    0,   20,   18,    0,   19,    0,   21,    0,    0,    0,
+    0,    0,    0,    0,   16,    0,    0,   13,    0,    0,
+    0,    0,    0,    0,    0,   15,    0,    0,    7,    0,
+    0,    0,    0,    0,    0,    0,    8,   12,    0,    0,
+    0,    0,    0,    0,    0,   16,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    2,    3,    4,    3,   12,
 };
-static const YYINT yycheck[] = {                        257,
+static const YYINT yycheck[] = {                         40,
+   10,   40,   10,   10,   45,   61,   45,   37,   38,  257,
+   10,   10,   42,   43,   10,   45,   37,   47,   10,   10,
+   -1,   42,   10,   10,   -1,   -1,   47,   37,   38,   -1,
+   -1,   41,   42,   43,   41,   45,   -1,   47,   37,   38,
+   -1,   -1,   38,   42,   43,   41,   45,   43,   47,   45,
+   38,   38,   -1,   41,   41,   43,   -1,   45,   37,   38,
+   -1,   -1,   41,   42,   43,   -1,   45,   -1,   47,    5,
+    6,   -1,   -1,   -1,   -1,   11,   -1,   -1,   -1,   -1,
+   16,   17,   18,   19,   20,   21,   22,   37,   38,   -1,
+   -1,   -1,   42,   43,  124,   45,   37,   47,   -1,   -1,
+   -1,   42,   43,   -1,   45,   -1,   47,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,  124,   -1,   -1,  124,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,  124,   -1,   -1,  124,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,  124,  124,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,  124,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,  256,  257,  258,  257,  258,
 };
-#define YYFINAL 2
+#define YYFINAL 1
 #ifndef YYDEBUG
 #define YYDEBUG 0
 #endif
-#define YYMAXTOKEN 257
-#define YYUNDFTOKEN 260
+#define YYMAXTOKEN 259
+#define YYUNDFTOKEN 265
 #define YYTRANSLATE(a) ((a) > YYMAXTOKEN ? YYUNDFTOKEN : (a))
 #if YYDEBUG
 static const char *const yyname[] = {
 
-"end-of-file",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+"end-of-file",0,0,0,0,0,0,0,0,0,"'\\n'",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,"'%'","'&'",0,"'('","')'","'*'","'+'",0,"'-'",0,"'/'",0,0,0,0,0,0,0,
+0,0,0,0,0,0,"'='",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"'|'",0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"IDENTIFIER",0,0,"illegal-symbol",
+0,0,0,0,0,0,"DIGIT","LETTER","UMINUS",0,0,0,0,0,"illegal-symbol",
 };
 static const char *const yyrule[] = {
-"$accept : stmt",
-"stmt : IDENTIFIER",
+"$accept : list",
+"list :",
+"list : list stat '\\n'",
+"list : list error '\\n'",
+"stat : expr",
+"stat : LETTER '=' expr",
+"expr : '(' expr ')'",
+"expr : expr '+' expr",
+"expr : expr '-' expr",
+"expr : expr '*' expr",
+"expr : expr '/' expr",
+"expr : expr '%' expr",
+"expr : expr '&' expr",
+"expr : expr '|' expr",
+"expr : '-' expr",
+"expr : LETTER",
+"expr : number",
+"number : DIGIT",
+"number : number DIGIT",
 
 };
 #endif
@@ -146,18 +224,18 @@ typedef struct {
 } YYSTACKDATA;
 /* variables for the parser stack */
 static YYSTACKDATA yystack;
-#line 12 "exp5.y"
+#line 43 "exp6.y"
 void  yyerror(const char *msg){
-  printf("Invalid Variable\n");
+  printf("Invalid equation or expression: %s\n",msg);
 }
 
 int main(){
-  printf("Enter a variable name: ");  
+  printf("Enter equation or expression: ");  
   yyparse();
   return 0;
 }
 
-#line 161 "y.tab.c"
+#line 239 "y.tab.c"
 
 #if YYDEBUG
 #include <stdio.h>	/* needed for printf */
@@ -356,11 +434,69 @@ yyreduce:
 
     switch (yyn)
     {
-case 1:
-#line 9 "exp5.y"
-	{printf("Valid variable: %s\n",yytext);return 0; }
+case 3:
+#line 20 "exp6.y"
+	{
+           yyerrok;
+         }
 break;
-#line 364 "y.tab.c"
+case 4:
+#line 24 "exp6.y"
+	{ printf("%d\n",yystack.l_mark[0]); }
+break;
+case 5:
+#line 25 "exp6.y"
+	{ regs[yystack.l_mark[-2]]=yystack.l_mark[0]; }
+break;
+case 6:
+#line 27 "exp6.y"
+	{ yyval = yystack.l_mark[-1]; }
+break;
+case 7:
+#line 28 "exp6.y"
+	{ yyval = yystack.l_mark[-2]+yystack.l_mark[0]; }
+break;
+case 8:
+#line 29 "exp6.y"
+	{ yyval = yystack.l_mark[-2]-yystack.l_mark[0]; }
+break;
+case 9:
+#line 30 "exp6.y"
+	{ yyval = yystack.l_mark[-2]*yystack.l_mark[0]; }
+break;
+case 10:
+#line 31 "exp6.y"
+	{ yyval = yystack.l_mark[-2]/yystack.l_mark[0]; }
+break;
+case 11:
+#line 32 "exp6.y"
+	{ yyval = yystack.l_mark[-2]%yystack.l_mark[0]; }
+break;
+case 12:
+#line 33 "exp6.y"
+	{ yyval = yystack.l_mark[-2]&yystack.l_mark[0]; }
+break;
+case 13:
+#line 34 "exp6.y"
+	{ yyval = yystack.l_mark[-2]|yystack.l_mark[0]; }
+break;
+case 14:
+#line 35 "exp6.y"
+	{ yyval=-yystack.l_mark[0]; }
+break;
+case 15:
+#line 36 "exp6.y"
+	{ yyval=regs[yystack.l_mark[0]]; }
+break;
+case 17:
+#line 39 "exp6.y"
+	{ yyval=yystack.l_mark[0]; }
+break;
+case 18:
+#line 40 "exp6.y"
+	{ yyval=10*yystack.l_mark[-1]+yystack.l_mark[0]; }
+break;
+#line 500 "y.tab.c"
     }
     yystack.s_mark -= yym;
     yystate = *yystack.s_mark;
